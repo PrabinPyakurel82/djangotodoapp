@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gray-100 py-10">
+  <div class="max-w-md w-full bg-white p-8 rounded-xl shadow-md">
+    <h2 class="text-center text-2xl font-bold text-gray-900">Create an Account</h2>
+    <form method="POST" action="{% url 'account_signup' %}" class="mt-6 space-y-4">
+      {% csrf_token %}
+      {% for field in form %}
+        <div>
+          <label class="block text-sm font-medium text-gray-700">{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}
+            <p class="text-red-500 text-xs mt-1">{{ field.errors.as_text }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
+        Sign Up
+      </button>
+    </form>
+    <p class="mt-4 text-sm text-center text-gray-600">
+      Already have an account?
+      <a href="{% url 'account_login' %}" class="text-blue-600 hover:underline">Login here</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
