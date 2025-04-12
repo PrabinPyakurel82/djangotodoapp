@@ -11,7 +11,6 @@ A clean and minimal Todo List web application built with Django and Tailwind CSS
 -  Task due dates, labels, and statuses
 -  Authenticated task access per user
 -  Responsive UI with Tailwind CSS
--  Flash messages for feedback
 -  Clean, maintainable codebase
 
 ---
